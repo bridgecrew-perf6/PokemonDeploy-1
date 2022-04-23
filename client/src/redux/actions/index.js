@@ -17,7 +17,7 @@ export const INTERSECT = 'INTERSECT';
 //////////////////////
 export const getAllPokemons = () => async dispatch => {
     try {
-        var allPokemonsArray = await axios.get("http://localhost:3001/pokemons");
+        var allPokemonsArray = await axios.get("/pokemons");
         dispatch({ type: SET_LOADING, payload: "" })
         return dispatch({
             type: GET_ALL_POKEMONS, payload: allPokemonsArray.data
@@ -30,7 +30,7 @@ export const getAllPokemons = () => async dispatch => {
 export function getPokemon(payload) {
     return async function (dispatch) {
         try {
-            let pokemonDetails = await axios.get('http://localhost:3001/pokemons/' + payload);
+            let pokemonDetails = await axios.get('/pokemons/' + payload);
             return dispatch({
                 type: GET_POKEMON,
                 payload: pokemonDetails.data
@@ -45,14 +45,14 @@ export function getPokemon(payload) {
 export function createPokemon(payload) {
     return async function (dispatch) {
         try {
-            await axios.get('http://localhost:3001/pokemons?name=' + payload.name.toLowerCase());
+            await axios.get('/pokemons?name=' + payload.name.toLowerCase());
             alert("There is another pokemon with that name. Try a different one")
             return dispatch({ type: SET_LOADING, payload: "" })
         } catch (error) {
             console.log("Pokemon doesn't exist, you may continue")
         }
-        const newPokemon = await axios.post('http://localhost:3001/pokemons', payload);
-        await axios.get('http://localhost:3001/pokemons', payload);
+        const newPokemon = await axios.post('/pokemons', payload);
+        await axios.get('/pokemons', payload);
         dispatch({ type: SET_LOADING, payload: "" })
         alert("You have created " + payload.name)
         return dispatch({
@@ -64,7 +64,7 @@ export function createPokemon(payload) {
 
 export const getTypes = () => async dispatch => {
     try {
-        var types = await axios("http://localhost:3001/types")
+        var types = await axios("/types")
         return dispatch({ type: GET_TYPES, payload: types.data })
     } catch (error) {
         return error
@@ -77,7 +77,7 @@ export const deletePokemon = (payload) => {
 
 export const searchByName = (payload) => async dispatch => {
     try {
-        const pokemon = await axios.get('http://localhost:3001/pokemons?name=' + payload.name.toLowerCase());
+        const pokemon = await axios.get('/pokemons?name=' + payload.name.toLowerCase());
         // console.log("pokemon data", pokemon.data)
         dispatch({ type: SET_LOADING, payload: "" })
         return dispatch({ type: FILTER_BY_NAME, payload: pokemon.data });

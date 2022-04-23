@@ -23,9 +23,9 @@ const model = require("./src/modelFunctions/model"); // PARA TRAERME LOS TYPES A
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
-  server.listen(3001, () => {
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
-  })
+  server.listen(process.env.PORT, () => {
+    console.log(" listening at %s", process.env.PORT); // eslint-disable-line no-console
+  });
 }).then(async () => {
   await model.addTypesToDB()
 });
