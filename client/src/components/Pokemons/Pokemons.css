@@ -1,0 +1,52 @@
+div .pokemons {
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 900px;
+    max-height: 900px;
+}
+
+.nodec {
+    text-decoration: none;
+    color: var(--nn);
+    ;
+}
+
+.cardBox {
+    margin: 5px;
+    max-height: 200;
+}
+
+.notPokemonsFound {
+    grid-area: 1 / 1 / 4 / 4;
+    margin: 0 auto;
+}
+
+p {
+    font-weight: bold;
+}
+
+.pages {
+    padding: 10px;
+    /* background-color: rgba(255, 255, 255, 0.5); */
+    margin: 0 auto;
+    width: 500px;
+}
+
+.pages button {
+    min-width: 40px;
+    min-height: 40px;
+    border-radius: 50%;
+    font-size: large;
+    font-weight: bold;
+    color: var(--inset);
+    margin: 4px;
+}
+
+.pageTitle {
+    font-size: 1.5rem;
+}
+
+/* .selectedPage {
+    background-color: var(--nav);
+} */

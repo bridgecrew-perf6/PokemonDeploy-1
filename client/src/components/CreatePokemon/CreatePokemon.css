@@ -1,0 +1,13 @@
+.errorMsg {
+    font-size: 0.8rem;
+    color: var(--error);
+    font-weight: 600;
+}
+
+.transparent {
+    color: transparent
+}
+
+.fullCreator select {
+    width: 50%;
+}

@@ -1,0 +1,9 @@
+.createBar {
+    position: absolute;
+    right: 0;
+    min-height: 140%;
+    width: 15%;
+    background-color: var(--verdesin);
+    list-style-type: none;
+    border-radius: 25px;
+}
